@@ -5,13 +5,14 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
+  <div id="wrapper">
    <%= render 'partial/navbar' if current_user%>
     <% if flash[:notice] %>
       <div class="alert alert-info">
@@ -23,6 +24,9 @@
         <%= flash[:alert] %>
       </div>
     <% end %>
+    <div class= "container">
     <%= yield %>
+    </div>
+    <%= render 'partial/footer' %>
   </body>
 </html>
